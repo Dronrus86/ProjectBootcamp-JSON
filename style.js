@@ -22,22 +22,29 @@ async function getCur(){
     const result =  await data;
 
 
-    ret = result.rates.USD
-    console.log(ret);
-    translationHave.textContent = ret;
 
+    console.log(result.rates.RUB);
+    ret.RUB = result.rates.RUB,
+    ret.USD = result.rates.USD,
+    ret.EUR = result.rates.EUR,
+    ret.EUR = result.rates.GBP,
+
+
+    translationHave.textContent = ret.RUB;
+    translationChange.textContent = ret.USD;
     
-    }
+}
     
 
   
 
 
 heveInput.oninput = function(){
-    console.log('Hi');
-    ret.value = parseFloat(changeInput.value) / 4 ;
+
+    changeInput.value = (parseFloat(changeInput.value) / ret.USD).toFixed(4) ;
+    //console.log( ret.RUB);
 }
 
-changeInput.oninput = function(){
-    console.log('Hi hi ');
-}
+//changeInput.oninput = function(){
+    //console.log('Hi hi ');
+//}

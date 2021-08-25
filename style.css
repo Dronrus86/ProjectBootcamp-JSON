@@ -5,13 +5,13 @@ body{
     padding: 0;
     margin: auto;
     min-width: 1152px;
-    height: 700px;
+    height: 100%;
     font-family: 'Roboto' ,'Courier New', Courier, monospace;
 }
 
 
 #wrapper{
-    width: 80%;
+    width: 670px;
     margin: auto;
 }
 
@@ -34,6 +34,7 @@ header{
 
 .menu{
     display: flex;
+    width: 670px;
 }
 
 .menu_button{
@@ -61,7 +62,7 @@ span{
 
 
 main{
-    width: 86%;
+    width: 670px;
 }
 
 
@@ -69,8 +70,8 @@ h1{
     font-size: 36px;
     font-weight: 700;
     font-style: normal;
-    text-align: center;
     padding-top: 56px;
+    padding-left: 30px;
 }
 
 p{
@@ -169,8 +170,7 @@ p{
     justify-content: space-around;
     padding-top: 30px;
     margin: auto;
-    width: 50%;
-    padding-left: 170px;
+    
 
 } 
 button:hover{
