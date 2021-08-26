@@ -82,15 +82,11 @@ p{
 }
 
 
-.currencyButtonActiv .changeButtonActiv{
-    background: #833AE0;
-    color: white;
-    }
-    
 
 
 
-.currency_button button{
+
+ button{
    color: #C6C6C6;
    background-color:#FFFFFF;
    Width:65.06px;
@@ -127,16 +123,6 @@ p{
     outline: none;
 }
 
-.change_button button{
-   color: #C6C6C6;
-   background-color:#FFFFFF;
-   Width:65.06px;
-   Height: 30px;
-   border: 1px solid #E5E5E5;
-   font-size: 12px;
-   font-weight: 400;
-   font-style: normal;
-}
 
 .change_button{
     display: flex;
@@ -183,3 +169,8 @@ button:hover{
    position: absolute;
 }
 
+.currencyButtonActiv, .changeButtonActiv{
+    background: #833AE0;
+    color: white;
+    }
+    
