@@ -1,9 +1,9 @@
-const currencyButton = document.querySelector('.currencyButton');    //Кнопка "У меня есть"
-const changeButton = document.querySelector('.changeButton');       //Кнопка  "Хочу купить"
+const currencyButton = document.getElementsByClassName('.currencyButton');    //Кнопка "У меня есть"
+const changeButton = document.getElementsByClassName('.changeButton');       //Кнопка  "Хочу купить"
 const heveInput = document.querySelector('.heveInput');            //Инпут "У меня есть"
 const changeInput = document.querySelector('.changeInput');       //Инпут "Хочу купить"
-const translationHave = document.querySelector('.translation_have');      //   
-const translationChange = document.querySelector('.translation_change'); //
+const translationHave = document.querySelector('.translation_have');      //  p - хочу купить 
+const translationChange = document.querySelector('.translation_change'); // р- у меняесть 
 
 
 
@@ -17,34 +17,27 @@ let ret = {};
 
 getCur()
 async function getCur(){
-    const resp = await fetch('https://api.exchangerate.host/latest');
-    const data = await resp.json();
-    const result =  await data;
+    const response = await fetch('https://api.exchangerate.host/latest');
+    const result = await response.json();
+    const rates = result.rates;
+    for (let key in rates) {
+    ret[key] = rates[key];
 
-
-
-    console.log(result.rates.RUB);
-    ret.RUB = result.rates.RUB,
-    ret.USD = result.rates.USD,
-    ret.EUR = result.rates.EUR,
-    ret.EUR = result.rates.GBP,
-
-
-    translationHave.textContent = ret.RUB;
-    translationChange.textContent = ret.USD;
-    
-}
-    
-
-  
-
-
-heveInput.oninput = function(){
-
-    changeInput.value = (parseFloat(changeInput.value) / ret.USD).toFixed(4) ;
-    //console.log( ret.RUB);
 }
 
-//changeInput.oninput = function(){
-    //console.log('Hi hi ');
-//}
+
+const translationHave = document.querySelector('.currencyButtonActiv');      //  кнопка активная 'у меня есть' 
+const translationChange = document.querySelector('.changeButtonActiv');      // кнпка активная 'хочу купить.' 
+changeInput.value = (heveInput.value*ret[translationHave.value] / ret[translationChange.value]).toFixed(4);
+    
+}
+
+
+window.onload = function (){
+    let changeButton = document.getElementsByClassName('.changeButton'); 
+    for(let i = 0; i < changeButton.length; i++)
+    changeButton[i].onclick = function (event){
+             console.log(changeButton);
+               
+           }
+}
